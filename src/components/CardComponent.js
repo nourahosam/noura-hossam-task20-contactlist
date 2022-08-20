@@ -1,7 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-
+import Button from 'react-bootstrap/Button';
 
 class CardComponent extends React.Component{
     constructor(props){
@@ -10,12 +8,12 @@ class CardComponent extends React.Component{
     }
     
     render(){
-        return (<Col className=''>  
-        <h3>{this.props.name}</h3>  
-        <h3>{this.props.email}</h3>    
-        <h3>{this.props.phone}</h3>
-                <button onClick={(e)=>{ this.props.dismiss(this.props.id)}}>Delete</button>
-        </Col>)
+        return (<div className='cardd'>  
+        <p>{this.props.name}</p>  
+        <p>{this.props.email}</p>    
+        <p>{this.props.phone}</p>
+                <Button variant="danger" onClick={(e)=>{ this.props.dismiss(this.props.id)}}>Delete</Button>
+        </div>)
     }
 }
 

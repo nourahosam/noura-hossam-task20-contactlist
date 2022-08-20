@@ -34,15 +34,14 @@ class MainComponent extends React.Component{
     render(){
         return (<div>
             {/* {if(this.state.loading)} */}
-            <Container className="cont">
-                <Row>
+            <div className="cont">
           {this.state.data.map((el, index)=>{
             el.id = index;
             console.log(el.id);
             return(<CardComponent  {...el} dismiss={this.dismiss}/> )
           })}
-          </Row>
-          </Container>
+
+          </div>
         </div>)
     }
 }
