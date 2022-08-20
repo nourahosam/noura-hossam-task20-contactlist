@@ -9,11 +9,18 @@ class MainComponent extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            data: []
+            data: [],
+            loading: true
         };
     }
-    dismiss(){
-
+    dismiss = (id)=>{
+        console.log(id);
+        var tempArray = this.state.data;
+        tempArray.splice(id, 1);
+        console.log("tempArtay");
+        console.log(tempArray);
+        this.setState({data: tempArray})
+        console.log(this.state.data);
     }
     componentWillMount(){
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -26,10 +33,13 @@ class MainComponent extends React.Component{
     }
     render(){
         return (<div>
+            {/* {if(this.state.loading)} */}
             <Container className="cont">
                 <Row>
-          {this.state.data.map(el=>{
-            return(<CardComponent  {...el}/> )
+          {this.state.data.map((el, index)=>{
+            el.id = index;
+            console.log(el.id);
+            return(<CardComponent  {...el} dismiss={this.dismiss}/> )
           })}
           </Row>
           </Container>

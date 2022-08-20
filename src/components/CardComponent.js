@@ -10,11 +10,11 @@ class CardComponent extends React.Component{
     }
     
     render(){
-        return (<Col className='card-col m-0'>  
+        return (<Col className=''>  
         <h3>{this.props.name}</h3>  
         <h3>{this.props.email}</h3>    
         <h3>{this.props.phone}</h3>
-                <button onClick={()=>{this.props.unmountMe()}}>Delete</button>
+                <button onClick={(e)=>{ this.props.dismiss(this.props.id)}}>Delete</button>
         </Col>)
     }
 }
